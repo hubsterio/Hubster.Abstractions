@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hubster.Abstractions", "scr\Hubster.Abstractions\Hubster.Abstractions.csproj", "{5BC4DDDC-E625-4651-B472-8FC5C04E9B4C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{384504DD-0760-4EF3-91B3-93D5DE2E33F9}"
+	ProjectSection(SolutionItems) = preProject
+		Hubster.licenseheader = Hubster.licenseheader
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

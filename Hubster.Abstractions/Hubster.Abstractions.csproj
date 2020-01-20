@@ -6,6 +6,10 @@
     <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
 
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\Hubster.licenseheader" Link="Hubster.licenseheader" />
+  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
