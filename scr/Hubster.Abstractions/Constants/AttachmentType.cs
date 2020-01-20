@@ -1,0 +1,53 @@
+﻿// Hubster 
+// Copyright (c) 2020 Hubster Solutions Inc. All rights reserved.
+
+using System.Collections.Generic;
+
+namespace Hubster.Abstractions.Constants
+{
+    public class AttachmentType
+    {
+        private static readonly HashSet<string> _Set;        
+
+        public const string Media = "media";
+        public const string Sticker = "sticker";
+        public const string Location = "location";
+        public const string Contact = "contact";
+
+        static AttachmentType()
+        {
+            _Set = new HashSet<string>(new[]
+            {
+                Media,
+                Sticker,
+                Location,
+                Contact
+            });
+        }
+
+        public static bool Contains(string value)
+        {
+            return _Set.Contains(value);
+        }
+
+        public static bool IsMedia(string value)
+        {
+            return value == Media;
+        }
+
+        public static bool IsSticker(string value)
+        {
+            return value == Sticker;
+        }
+
+        public static bool IsLocation(string value)
+        {
+            return value == Location;
+        }
+
+        public static bool IsContact(string value)
+        {
+            return value == Contact;
+        }
+    }
+}
