@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\Hubster.licenseheader" Link="Hubster.licenseheader" />
+    <None Include="..\Hubster.licenseheader" Link="Hubster.licenseheader" />
   </ItemGroup>
   
   <ItemGroup>

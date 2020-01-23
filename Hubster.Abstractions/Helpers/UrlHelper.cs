@@ -10,7 +10,7 @@ namespace Hubster.Abstractions.Helpers
     /// <summary>
     /// 
     /// </summary>
-    public static class UrlHelper
+    internal static class UrlHelper
     {
         private static readonly HashSet<string> _AllowedMimeParts;
 
