@@ -4,7 +4,7 @@
 using Newtonsoft.Json;
 using System;
 
-namespace Hubster.Abstractions.Models
+namespace Hubster.Abstractions.Models 
 {
     public partial class TenantModel
     {
