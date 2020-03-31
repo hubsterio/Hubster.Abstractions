@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace Hubster.Abstractions.Models
 {
-    public class ActivityGroupModel
+    public xclass ActivityGroupModel
     {
         [JsonProperty("group", NullValueHandling = NullValueHandling.Ignore)]
         public string Group { get; set; }
