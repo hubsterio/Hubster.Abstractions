@@ -4,7 +4,7 @@
 using Hubster.Abstractions.Models.Direct;
 using Newtonsoft.Json;
 
-namespace Hubster.Abstractions.Models
+namespace Hubster.Abstractions.Models 
 {
     public class ActivityGroupModel
     {
