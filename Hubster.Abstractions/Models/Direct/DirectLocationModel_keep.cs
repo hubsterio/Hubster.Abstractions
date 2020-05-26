@@ -1,26 +1,25 @@
 ﻿// Hubster 
 // Copyright (c) 2020 Hubster Solutions Inc. All rights reserved.
 
-using Hubster.Abstractions.Enums;
 using Newtonsoft.Json;
 
 namespace Hubster.Abstractions.Models.Direct
 {
-    public class DirectSourceModel
-    {        
+    public class DirectLocationModel
+    {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string IntegrationId { get; set; }
+        public string ImageUrl { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public IntegrationType? IntegrationType { get; set; }
+        public string LinkUrl { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public ChannelType? ChannelType { get; set; }
+        public string Address { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string TokenId { get; set; }
+        public double? Latitude { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string ChannelData { get; set; }
+        public double? Longitude { get; set; }
     }
 }

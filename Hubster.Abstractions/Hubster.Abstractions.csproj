@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\Direct.bk\**" />
+    <EmbeddedResource Remove="Models\Direct.bk\**" />
+    <None Remove="Models\Direct.bk\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="..\Hubster.licenseheader" Link="Hubster.licenseheader" />
   </ItemGroup>
   

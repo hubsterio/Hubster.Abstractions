@@ -7,7 +7,7 @@ namespace Hubster.Abstractions.Models.Direct
 {
     public class DirectSenderActionModel
     {
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("action", NullValueHandling = NullValueHandling.Ignore)]
         public string Action { get; set; }
     }
 }

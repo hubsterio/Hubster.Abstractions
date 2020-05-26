@@ -8,19 +8,19 @@ namespace Hubster.Abstractions.Models.Direct
 {
     public class DirectSourceModel
     {        
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("integration_id", NullValueHandling = NullValueHandling.Ignore)]
         public string IntegrationId { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("integration_type", NullValueHandling = NullValueHandling.Ignore)]
         public IntegrationType? IntegrationType { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("channel_type", NullValueHandling = NullValueHandling.Ignore)]
         public ChannelType? ChannelType { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("token_id", NullValueHandling = NullValueHandling.Ignore)]
         public string TokenId { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("channel_data", NullValueHandling = NullValueHandling.Ignore)]
         public string ChannelData { get; set; }
     }
 }

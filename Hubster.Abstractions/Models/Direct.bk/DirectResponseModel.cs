@@ -10,25 +10,25 @@ namespace Hubster.Abstractions.Models.Direct
 {
     public class DirectResponseModel
     {
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("status", NullValueHandling = NullValueHandling.Ignore)]
         public HttpStatusCode Status { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("event_id", NullValueHandling = NullValueHandling.Ignore)]
         public long? EventId { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("hub_id", NullValueHandling = NullValueHandling.Ignore)]
         public Guid? HubId { get; set; }
         
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("conversation_id", NullValueHandling = NullValueHandling.Ignore)]
         public Guid? ConversationId { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("integration_id", NullValueHandling = NullValueHandling.Ignore)]
         public Guid? IntegrationId { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("interaction_id", NullValueHandling = NullValueHandling.Ignore)]
         public Guid? InteractionId { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("errors", NullValueHandling = NullValueHandling.Ignore)]
         public List<ErrorCodeModel> Errors { get; set; }
     }
 }
