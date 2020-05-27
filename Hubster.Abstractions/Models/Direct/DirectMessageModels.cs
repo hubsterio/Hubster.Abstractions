@@ -1,41 +1,9 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
 
 namespace Hubster.Abstractions.Models.Direct
 {
-
-    public class MessageConverter<T> : JsonConverter<T> where T: Message 
-    {
-        public override bool CanWrite => false;
-        public override bool CanRead => true;
-
-        public override T ReadJson(JsonReader reader, Type objectType, T existingValue, bool hasExistingValue, JsonSerializer serializer)
-        {
-            if(hasExistingValue)
-            {
-                return existingValue;
-            }
-            
-            var item = JObject.Load(reader);
-            var type = item["Type"].Value<string>();
-
-            switch (type)
-            {
-                case "TextMessage": return item.ToObject<TextMessage>() as T;
-                case "ButtonMessage": return item.ToObject<ButtonMessage>() as T;
-                default:
-                    return existingValue;
-            }
-        }
-
-        public override void WriteJson(JsonWriter writer, T value, JsonSerializer serializer)
-        {
-        }
-    }
-
-    public class Style
+    public class DirectStyleModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Color { get; set; }
@@ -47,8 +15,7 @@ namespace Hubster.Abstractions.Models.Direct
         public string BorderColor { get; set; }
     }
 
-
-    public class ButtonItem
+    public class DirectButtonItemModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Type { get; set; }
@@ -60,13 +27,13 @@ namespace Hubster.Abstractions.Models.Direct
         public string Postback { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public Style Style { get; set; }
+        public DirectStyleModel Style { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public Style Hover { get; set; }
+        public DirectStyleModel Hover { get; set; }
     }
 
-    public class ButtonImageItem
+    public class DirectButtonImageItemModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Url { get; set; }
@@ -81,7 +48,7 @@ namespace Hubster.Abstractions.Models.Direct
         public string Style { get; set; }
     }
 
-    public class ListItem
+    public class DirectListItemModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Title { get; set; }
@@ -90,7 +57,7 @@ namespace Hubster.Abstractions.Models.Direct
         public string Postback { get; set; }
     }
 
-    public class Link
+    public class DirectLinkItemModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Title { get; set; }
@@ -99,8 +66,7 @@ namespace Hubster.Abstractions.Models.Direct
         public string Url { get; set; }
     }
 
-    [JsonConverter(typeof(MessageConverter<Message>))]
-    public class Message
+    public class DirectMessageModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Type { get; set; }
@@ -109,16 +75,15 @@ namespace Hubster.Abstractions.Models.Direct
         public string Author { get; set; }
     }
 
-    [JsonConverter(typeof(MessageConverter<TextMessage>))]
-    public class TextMessage : Message
+    public class DirectTextMessageModel : DirectMessageModel
     {
         public string Text { get; set; }
-        public Style Style { get; set; }
+        public DirectStyleModel Style { get; set; }
         
-        public List<Message> Widgets { get; set; }
+        public List<DirectMessageModel> Widgets { get; set; }
     }
 
-    public class ImageMessage : Message
+    public class DirectImageMessageModel : DirectMessageModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Url { get; set; }
@@ -128,14 +93,13 @@ namespace Hubster.Abstractions.Models.Direct
     }
 
 
-    public class MediaMessage : Message
+    public class DirectMediaMessageModel : DirectMessageModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Url { get; set; }
     }
 
-    [JsonConverter(typeof(MessageConverter<ButtonMessage>))]
-    public class ButtonMessage : Message
+    public class DirectButtonMessageModel : DirectMessageModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Title { get; set; }
@@ -144,10 +108,10 @@ namespace Hubster.Abstractions.Models.Direct
         public string Subtitle { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<ButtonItem> Buttons { get; set; }
+        public List<DirectButtonItemModel> Buttons { get; set; }
     }
 
-    public class ButtonImageMessage : Message
+    public class DirectButtonImageMessageModel : DirectMessageModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Title { get; set; }
@@ -156,10 +120,10 @@ namespace Hubster.Abstractions.Models.Direct
         public string Subtitle { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<ButtonImageItem> Buttons { get; set; }
+        public List<DirectButtonImageItemModel> Buttons { get; set; }
     }
 
-    public class ListMessage : Message
+    public class DirectListMessageModel : DirectMessageModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Title { get; set; }
@@ -168,15 +132,15 @@ namespace Hubster.Abstractions.Models.Direct
         public string Subtitle { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<ListItem> List { get; set; }
+        public List<DirectListItemModel> List { get; set; }
     }
 
-    public class LinkMessage : Message
+    public class DirectLinkMessageModel : DirectMessageModel
     {
-        public List<ButtonImageItem> Links { get; set; }
+        public List<DirectLinkItemModel> Links { get; set; }
     }
 
-    public class FlashcardMessage : Message
+    public class DirectFlashcardMessageModel : DirectMessageModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Title { get; set; }
@@ -188,13 +152,13 @@ namespace Hubster.Abstractions.Models.Direct
         public string Text { get; set; }
     }
 
-    public class CardMessage : Message
+    public class DirectCardMessageModel : DirectMessageModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Message> widgets { get; set; }
+        public List<DirectMessageModel> Widgets { get; set; }
     }
 
-    public class CustomMessage : Message
+    public class DirectCustomMessageModel : DirectMessageModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string InnerHTML { get; set; }

@@ -3,6 +3,7 @@
 
 using Hubster.Abstractions.Enums;
 using Newtonsoft.Json;
+using System;
 
 namespace Hubster.Abstractions.Models.Direct
 {
@@ -13,6 +14,9 @@ namespace Hubster.Abstractions.Models.Direct
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public long? EventId { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public Guid? InteractionId { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public ActivityFlowProcessType? FlowProcess { get; set; }
