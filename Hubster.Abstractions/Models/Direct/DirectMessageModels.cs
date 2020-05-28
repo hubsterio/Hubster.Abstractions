@@ -81,6 +81,8 @@ namespace Hubster.Abstractions.Models.Direct
         public DirectStyleModel Style { get; set; }
         
         public List<DirectMessageModel> Widgets { get; set; }
+
+        public DirectTextMessageModel() { Type = "TextMessage"; }
     }
 
     public class DirectImageMessageModel : DirectMessageModel
@@ -90,6 +92,9 @@ namespace Hubster.Abstractions.Models.Direct
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Alt { get; set; }
+        public string UrlAnchor { get; set; }
+
+        public DirectImageMessageModel() { Type = "ImageMessage"; }
     }
 
 
@@ -121,6 +126,8 @@ namespace Hubster.Abstractions.Models.Direct
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public List<DirectButtonImageItemModel> Buttons { get; set; }
+
+        public DirectButtonImageMessageModel() { Type = "ButtonImageMessage"; }
     }
 
     public class DirectListMessageModel : DirectMessageModel
@@ -133,11 +140,15 @@ namespace Hubster.Abstractions.Models.Direct
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public List<DirectListItemModel> List { get; set; }
+
+        public DirectListMessageModel() { Type = "ListMessage"; }
     }
 
     public class DirectLinkMessageModel : DirectMessageModel
     {
         public List<DirectLinkItemModel> Links { get; set; }
+
+        public DirectLinkMessageModel() { Type = "LinkMessage"; }
     }
 
     public class DirectFlashcardMessageModel : DirectMessageModel
@@ -150,6 +161,8 @@ namespace Hubster.Abstractions.Models.Direct
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Text { get; set; }
+
+        public DirectFlashcardMessageModel() { Type = "FlashcardMessage"; }
     }
 
     public class DirectCardMessageModel : DirectMessageModel
@@ -162,5 +175,7 @@ namespace Hubster.Abstractions.Models.Direct
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string InnerHTML { get; set; }
+
+        public DirectCustomMessageModel() { Type = "CustomMessage"; }
     }
 }

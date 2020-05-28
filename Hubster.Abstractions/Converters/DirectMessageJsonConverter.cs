@@ -54,34 +54,34 @@ namespace Hubster.Abstractions.Converters
                 return null;
             }
 
-            var type = jo[key].Value<string>()?.ToUpper();
+            var type = jo[key].Value<string>();
             var message = (DirectMessageModel)null;
 
             switch (type)
             {
-                case "TEXTMESSAGE": message = jo.ToObject<DirectTextMessageModel>(serializer); break;
-                case "BUTTONIMAGEMESSAGE": message = jo.ToObject<DirectButtonImageMessageModel>(serializer); break;
-                case "IMAGEMESSAGE": message = jo.ToObject<DirectImageMessageModel>(serializer); break;
-                case "CARDMESSAGE": message = jo.ToObject<DirectCardMessageModel>(serializer); break;
-                case "LISTMESSAGE": message = jo.ToObject<DirectListMessageModel>(serializer); break;
-                case "LINKMESSAGE": message = jo.ToObject<DirectLinkMessageModel>(serializer); break;
-                case "FLASHCARDMESSAGE": message = jo.ToObject<DirectFlashcardMessageModel>(serializer); break;
-                case "CUSTOMMESSAGE": message = jo.ToObject<DirectCustomMessageModel>(serializer); break;
+                case "TextMessage": message = jo.ToObject<DirectTextMessageModel>(serializer); break;
+                case "ButtonImageMessage": message = jo.ToObject<DirectButtonImageMessageModel>(serializer); break;
+                case "ImageMessage": message = jo.ToObject<DirectImageMessageModel>(serializer); break;
+                case "CardMessage": message = jo.ToObject<DirectCardMessageModel>(serializer); break;
+                case "ListMessage": message = jo.ToObject<DirectListMessageModel>(serializer); break;
+                case "LinkMessage": message = jo.ToObject<DirectLinkMessageModel>(serializer); break;
+                case "FlashcardMessage": message = jo.ToObject<DirectFlashcardMessageModel>(serializer); break;
+                case "CustomMessage": message = jo.ToObject<DirectCustomMessageModel>(serializer); break;
 
-                case "BUTTONMESSAGE":
-                case "QUICKREPLYMESSAGE":
+                case "ButtonMessage":
+                case "QuickReplyMessage":
                     message = jo.ToObject<DirectButtonMessageModel>(serializer); 
                     break;                
 
-                case "YOUTUBEVIDEOMESSAGE":
-                case "VIMEOVIDEOMESSAGE":
-                case "MP4VIDEOMESSAGE":
-                case "AUDIOMESSAGE":
+                case "YouTubeMessage":
+                case "VimeoVideoMessage":
+                case "MP4VideoMessage":
+                case "AudioMessage":
                     message = jo.ToObject<DirectMediaMessageModel>(serializer);
                     break;
 
                 default: 
-                    message = new DirectMessageModel { Type = type }; 
+                    message = new DirectMessageModel { Type = type ?? "Unknown" }; 
                     break;
             }
 
