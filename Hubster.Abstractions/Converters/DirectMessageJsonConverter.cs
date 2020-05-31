@@ -63,10 +63,12 @@ namespace Hubster.Abstractions.Converters
                 case "ButtonImageMessage": message = jo.ToObject<DirectButtonImageMessageModel>(serializer); break;
                 case "ImageMessage": message = jo.ToObject<DirectImageMessageModel>(serializer); break;
                 case "CardMessage": message = jo.ToObject<DirectCardMessageModel>(serializer); break;
+                case "ComboMessage": message = jo.ToObject<DirectComboMessageModel>(serializer); break;
                 case "ListMessage": message = jo.ToObject<DirectListMessageModel>(serializer); break;
                 case "LinkMessage": message = jo.ToObject<DirectLinkMessageModel>(serializer); break;
                 case "FlashcardMessage": message = jo.ToObject<DirectFlashcardMessageModel>(serializer); break;
                 case "CustomMessage": message = jo.ToObject<DirectCustomMessageModel>(serializer); break;
+                case "AttachmentMessage": message = jo.ToObject<DirectAttachmentMessageModel>(serializer); break;
 
                 case "ButtonMessage":
                 case "QuickReplyMessage":

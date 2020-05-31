@@ -6,6 +6,9 @@ using System.Collections.Generic;
 
 namespace Hubster.Abstractions.Constants
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class MediaType
     {
         private static readonly HashSet<string> _Set;        
@@ -23,7 +26,8 @@ namespace Hubster.Abstractions.Constants
                 Image,
                 Audio,
                 Video,
-                File,                         
+                File,
+                Text
             });
         }
 

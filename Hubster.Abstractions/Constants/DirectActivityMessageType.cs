@@ -11,6 +11,7 @@ namespace Hubster.Abstractions.Constants
         
         public const string TextMessage = "TextMessage";
         public const string CardMessage = "CardMessage";
+        public const string ComboMessage = "ComboMessage";
         public const string ImageMessage = "ImageMessage";
         public const string YouTubeVideoMessage = "YouTubeVideoMessage";
         public const string VimeoVideoMessage = "VimeoVideoMessage";
@@ -31,6 +32,7 @@ namespace Hubster.Abstractions.Constants
             {
                 TextMessage,
                 CardMessage,
+                ComboMessage,
                 ImageMessage,
                 YouTubeVideoMessage,
                 VimeoVideoMessage,

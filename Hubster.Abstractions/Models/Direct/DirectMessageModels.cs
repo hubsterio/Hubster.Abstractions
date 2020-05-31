@@ -73,6 +73,9 @@ namespace Hubster.Abstractions.Models.Direct
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Author { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string Parent { get; set; }
     }
 
     public class DirectTextMessageModel : DirectMessageModel
@@ -169,6 +172,16 @@ namespace Hubster.Abstractions.Models.Direct
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public List<DirectMessageModel> Widgets { get; set; }
+
+        public DirectCardMessageModel() { Type = "CardMessage"; }
+    }
+
+    public class DirectComboMessageModel : DirectMessageModel
+    {
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public List<DirectMessageModel> Widgets { get; set; }
+
+        public DirectComboMessageModel() { Type = "ComboMessage"; }
     }
 
     public class DirectCustomMessageModel : DirectMessageModel
@@ -178,4 +191,15 @@ namespace Hubster.Abstractions.Models.Direct
 
         public DirectCustomMessageModel() { Type = "CustomMessage"; }
     }
+
+    public class DirectAttachmentMessageModel : DirectMessageModel
+    {
+        public string Label { get; set; }
+        public string MimeType { get; set; }
+        public string Url { get; set; }
+
+        public DirectAttachmentMessageModel() { Type = "AttachmentMessage"; }
+
+    }
 }
+
