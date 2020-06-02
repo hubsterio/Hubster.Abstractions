@@ -66,6 +66,15 @@ namespace Hubster.Abstractions.Models.Direct
         public string Url { get; set; }
     }
 
+    public class DirectMessagePropertyItem
+    {
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string Key { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string Value { get; set; }
+    }
+
     public class DirectMessageModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
@@ -199,7 +208,37 @@ namespace Hubster.Abstractions.Models.Direct
         public string Url { get; set; }
 
         public DirectAttachmentMessageModel() { Type = "AttachmentMessage"; }
+    }
 
+    public class DirectContactMessageModel : DirectMessageModel
+    {
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string ImageUrl { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string Title { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public List<DirectMessagePropertyItem> Properties { get; set; }
+
+        public DirectContactMessageModel() { Type = "ContactMessage"; Properties = new List<DirectMessagePropertyItem>(); }
+    }
+
+    public class DirectLocationMessageModel : DirectMessageModel
+    {
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string MapUrl { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string Address { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public double? Latitude { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public double? Longitude { get; set; }
+
+        public DirectLocationMessageModel() { Type = "LocationMessage"; }
     }
 }
 

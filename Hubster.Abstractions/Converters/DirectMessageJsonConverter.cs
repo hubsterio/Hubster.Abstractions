@@ -69,6 +69,8 @@ namespace Hubster.Abstractions.Converters
                 case "FlashcardMessage": message = jo.ToObject<DirectFlashcardMessageModel>(serializer); break;
                 case "CustomMessage": message = jo.ToObject<DirectCustomMessageModel>(serializer); break;
                 case "AttachmentMessage": message = jo.ToObject<DirectAttachmentMessageModel>(serializer); break;
+                case "ContactMessage": message = jo.ToObject<DirectContactMessageModel>(serializer); break;
+                case "LocationMessage": message = jo.ToObject<DirectLocationMessageModel>(serializer); break;
 
                 case "ButtonMessage":
                 case "QuickReplyMessage":
