@@ -1,4 +1,5 @@
-﻿using Hubster.Abstractions.Models.Direct;
+﻿using Hubster.Abstractions.Constants;
+using Hubster.Abstractions.Models.Direct;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -22,7 +23,8 @@ namespace Hubster.Abstractions.Converters
         /// </returns>
         public override bool CanConvert(Type objectType)
         {
-            return (objectType == typeof(DirectMessageModel));
+            return objectType == typeof(DirectMessageModel)
+                || objectType == typeof(DirectAction);
         }
 
         /// <summary>
@@ -55,41 +57,57 @@ namespace Hubster.Abstractions.Converters
             }
 
             var type = jo[key].Value<string>();
-            var message = (DirectMessageModel)null;
 
-            switch (type)
+            if (objectType == typeof(DirectMessageModel))
             {
-                case "TextMessage": message = jo.ToObject<DirectTextMessageModel>(serializer); break;
-                case "ButtonImageMessage": message = jo.ToObject<DirectButtonImageMessageModel>(serializer); break;
-                case "ImageMessage": message = jo.ToObject<DirectImageMessageModel>(serializer); break;
-                case "CardMessage": message = jo.ToObject<DirectCardMessageModel>(serializer); break;
-                case "ComboMessage": message = jo.ToObject<DirectComboMessageModel>(serializer); break;
-                case "ListMessage": message = jo.ToObject<DirectListMessageModel>(serializer); break;
-                case "LinkMessage": message = jo.ToObject<DirectLinkMessageModel>(serializer); break;
-                case "FlashcardMessage": message = jo.ToObject<DirectFlashcardMessageModel>(serializer); break;
-                case "CustomMessage": message = jo.ToObject<DirectCustomMessageModel>(serializer); break;
-                case "AttachmentMessage": message = jo.ToObject<DirectAttachmentMessageModel>(serializer); break;
-                case "ContactMessage": message = jo.ToObject<DirectContactMessageModel>(serializer); break;
-                case "LocationMessage": message = jo.ToObject<DirectLocationMessageModel>(serializer); break;
+                var message = (DirectMessageModel)null;
 
-                case "ButtonMessage":
-                case "QuickReplyMessage":
-                    message = jo.ToObject<DirectButtonMessageModel>(serializer); 
-                    break;                
+                switch (type)
+                {
+                    // message types
+                    case DirectActivityMessageType.Text: message = jo.ToObject<DirectTextMessageModel>(serializer); break;
+                    case DirectActivityMessageType.Contact: message = jo.ToObject<DirectContactMessageModel>(serializer); break;
+                    case DirectActivityMessageType.Location: message = jo.ToObject<DirectLocationMessageModel>(serializer); break;
+                    case DirectActivityMessageType.Attachment: message = jo.ToObject<DirectAttachmentMessageModel>(serializer); break;
+                    case DirectActivityMessageType.Image: message = jo.ToObject<DirectImageMessageModel>(serializer); break;
+                    case DirectActivityMessageType.Carousel: message = jo.ToObject<DirectCarouselMessageModel>(serializer); break;
+                    case DirectActivityMessageType.List: message = jo.ToObject<DirectListMessageModel>(serializer); break;
+                    case DirectActivityMessageType.Youtube:
+                    case DirectActivityMessageType.Vimeo:
+                    case DirectActivityMessageType.Video:
+                    case DirectActivityMessageType.Audio:
+                        message = jo.ToObject<DirectMediaMessageModel>(serializer);
+                        break;
 
-                case "YouTubeMessage":
-                case "VimeoVideoMessage":
-                case "MP4VideoMessage":
-                case "AudioMessage":
-                    message = jo.ToObject<DirectMediaMessageModel>(serializer);
-                    break;
+                    default:
+                        message = new DirectMessageModel { Type = type };
+                        break;
+                }
 
-                default: 
-                    message = new DirectMessageModel { Type = type ?? "Unknown" }; 
-                    break;
+                return message;
             }
 
-            return message;
+            if (objectType == typeof(DirectAction))
+            {
+                var action = (DirectAction)null;
+
+                switch (type)
+                {
+                    case DirectActivityActionType.Link: action = jo.ToObject<DirectLinkAction>(serializer); break;
+                    case DirectActivityActionType.Postback:
+                    case DirectActivityActionType.Reply:
+                        action = jo.ToObject<DirectPostbackAction>(serializer); 
+                        break;
+
+                    default:
+                        action = new DirectAction { Type = type };
+                        break;
+                }
+
+                return action;
+            }
+
+            return null;
         }
 
         /// <summary>

@@ -16,6 +16,9 @@ namespace Hubster.Abstractions.Models.Direct
         public long? EventId { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string ExternalId { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public Guid? InteractionId { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]

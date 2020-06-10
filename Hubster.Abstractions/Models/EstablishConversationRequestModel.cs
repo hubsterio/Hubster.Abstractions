@@ -17,13 +17,8 @@ namespace Hubster.Abstractions.Models
             };
         }
 
-        [JsonProperty("integration_id")]
         public string IntegrationId { get; set; }
-
-        [JsonProperty("binding")]
         public string Binding { get; set; }
-
-        [JsonProperty("properties")]
         public ConversationPropertiesModel Properties { get; set; }
     }
 }

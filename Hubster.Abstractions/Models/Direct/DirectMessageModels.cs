@@ -1,213 +1,102 @@
-﻿using Newtonsoft.Json;
+﻿using Hubster.Abstractions.Constants;
+using Hubster.Abstractions.Enums;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace Hubster.Abstractions.Models.Direct
 {
-    public class DirectStyleModel
-    {
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Color { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string BackgroundColor { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string BorderColor { get; set; }
-    }
-
-    public class DirectButtonItemModel
-    {
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Type { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Title { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Postback { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DirectStyleModel Style { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DirectStyleModel Hover { get; set; }
-    }
-
-    public class DirectButtonImageItemModel
-    {
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Url { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Alt { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Postback { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Style { get; set; }
-    }
-
-    public class DirectListItemModel
-    {
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Title { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Postback { get; set; }
-    }
-
-    public class DirectLinkItemModel
-    {
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Title { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Url { get; set; }
-    }
-
     public class DirectMessagePropertyItem
     {
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Key { get; set; }
+        public string Value { get; set; }
+    }
+
+    public class DirectChannelMetadata
+    {
+        public ChannelType Type { get; set; }
+        public List<DirectMessagePropertyItem> Metadata { get; set; }
+    }
+
+    public class DirectListItem
+    {
+        public string Title { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Value { get; set; }
+        public string Description { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string MediaUrl { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public List<DirectAction> Actions { get; set; }
+    }
+
+    public class DirectAction
+    {        
+        public string Type { get; set; }
+
+        public string Title { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string UrlIcon { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string UrlImage { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public bool? IsDefault  { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public List<DirectChannelMetadata> Channels { get; set; }
+}
+
+    public class DirectLinkAction : DirectAction
+    {
+        public string Url { get; set; }
+    }
+
+    public class DirectPostbackAction : DirectAction
+    {        
+        public string Payload { get; set; }
     }
 
     public class DirectMessageModel
     {
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Type { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Author { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Parent { get; set; }
+        public List<DirectChannelMetadata> Channels { get; set; }
     }
 
     public class DirectTextMessageModel : DirectMessageModel
     {
-        public string Text { get; set; }
-        public DirectStyleModel Style { get; set; }
-        
-        public List<DirectMessageModel> Widgets { get; set; }
-
-        public DirectTextMessageModel() { Type = "TextMessage"; }
-    }
-
-    public class DirectImageMessageModel : DirectMessageModel
-    {
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Url { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Alt { get; set; }
-        public string UrlAnchor { get; set; }
-
-        public DirectImageMessageModel() { Type = "ImageMessage"; }
-    }
-
-
-    public class DirectMediaMessageModel : DirectMessageModel
-    {
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Url { get; set; }
-    }
-
-    public class DirectButtonMessageModel : DirectMessageModel
-    {
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Title { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Subtitle { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<DirectButtonItemModel> Buttons { get; set; }
-    }
-
-    public class DirectButtonImageMessageModel : DirectMessageModel
-    {
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Title { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Subtitle { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<DirectButtonImageItemModel> Buttons { get; set; }
-
-        public DirectButtonImageMessageModel() { Type = "ButtonImageMessage"; }
-    }
-
-    public class DirectListMessageModel : DirectMessageModel
-    {
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Title { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Subtitle { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<DirectListItemModel> List { get; set; }
-
-        public DirectListMessageModel() { Type = "ListMessage"; }
-    }
-
-    public class DirectLinkMessageModel : DirectMessageModel
-    {
-        public List<DirectLinkItemModel> Links { get; set; }
-
-        public DirectLinkMessageModel() { Type = "LinkMessage"; }
-    }
-
-    public class DirectFlashcardMessageModel : DirectMessageModel
-    {
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Title { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Subtitle { get; set; }
-
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Text { get; set; }
 
-        public DirectFlashcardMessageModel() { Type = "FlashcardMessage"; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public List<DirectMessageModel> Items { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public List<DirectAction> Actions { get; set; }
+
+        public DirectTextMessageModel() { Type = DirectActivityMessageType.Text; }
     }
 
-    public class DirectCardMessageModel : DirectMessageModel
+    public class DirectLocationMessageModel : DirectMessageModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<DirectMessageModel> Widgets { get; set; }
+        public string ImageUrl { get; set; }
 
-        public DirectCardMessageModel() { Type = "CardMessage"; }
-    }
-
-    public class DirectComboMessageModel : DirectMessageModel
-    {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<DirectMessageModel> Widgets { get; set; }
+        public string Address { get; set; }
 
-        public DirectComboMessageModel() { Type = "ComboMessage"; }
-    }
-
-    public class DirectCustomMessageModel : DirectMessageModel
-    {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string InnerHTML { get; set; }
+        public double? Latitude { get; set; }
 
-        public DirectCustomMessageModel() { Type = "CustomMessage"; }
-    }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public double? Longitude { get; set; }
 
-    public class DirectAttachmentMessageModel : DirectMessageModel
-    {
-        public string Label { get; set; }
-        public string MimeType { get; set; }
-        public string Url { get; set; }
-
-        public DirectAttachmentMessageModel() { Type = "AttachmentMessage"; }
+        public DirectLocationMessageModel() { Type = DirectActivityMessageType.Location; }
     }
 
     public class DirectContactMessageModel : DirectMessageModel
@@ -221,24 +110,64 @@ namespace Hubster.Abstractions.Models.Direct
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public List<DirectMessagePropertyItem> Properties { get; set; }
 
-        public DirectContactMessageModel() { Type = "ContactMessage"; Properties = new List<DirectMessagePropertyItem>(); }
+        public DirectContactMessageModel() { Type = DirectActivityMessageType.Contact; }
     }
 
-    public class DirectLocationMessageModel : DirectMessageModel
+    public class DirectAttachmentMessageModel : DirectMessageModel
+    {
+        public string Url { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string MimeType { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string Label { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public int? Size { get; set; }
+
+        public DirectAttachmentMessageModel() { Type = DirectActivityMessageType.Attachment; }
+    }
+
+    public class DirectMediaMessageModel : DirectAttachmentMessageModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string MapUrl { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Address { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public double? Latitude { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public double? Longitude { get; set; }
-
-        public DirectLocationMessageModel() { Type = "LocationMessage"; }
+        public int? Length { get; set; }        
     }
-}
+
+    public class DirectImageMessageModel : DirectMessageModel
+    {
+        public string Url { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string Alt { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string UrlAnchor { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string Title { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string TitleColor { get; set; }
+
+        public DirectImageMessageModel() { Type = DirectActivityMessageType.Image; }
+    }
+
+    public class DirectCarouselMessageModel : DirectMessageModel
+    {
+        public List<DirectListItem> Items { get; set; }
+
+        public DirectCarouselMessageModel() { Type = DirectActivityMessageType.Carousel; }
+    }
+
+    public class DirectListMessageModel : DirectCarouselMessageModel
+    {
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public List<DirectAction> Actions { get; set; }
+
+        public DirectListMessageModel() { Type = DirectActivityMessageType.List; }
+    }
+
+ }
 

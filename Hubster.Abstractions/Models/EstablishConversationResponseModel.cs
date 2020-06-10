@@ -13,13 +13,8 @@ namespace Hubster.Abstractions.Models
             Errors = new List<ErrorCodeModel>();
         }
 
-        [JsonProperty("conversation")]
         public ConversationModel Conversation { get; set; }
-
-        [JsonProperty("conversation_response")]
         public EstablishedConversationModel EstablishedConversation { get; set; }
-
-        [JsonProperty("errors")]
         public List<ErrorCodeModel> Errors { get; set; }
     }
 }

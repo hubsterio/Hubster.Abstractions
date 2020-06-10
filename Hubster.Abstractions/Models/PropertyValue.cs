@@ -7,10 +7,10 @@ namespace Hubster.Abstractions.Models
 {
     public class DirectrPropertyValue
     {
-        [JsonProperty("key", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Key { get; set; }
 
-        [JsonProperty("value", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Value { get; set; }
 
         public DirectrPropertyValue()

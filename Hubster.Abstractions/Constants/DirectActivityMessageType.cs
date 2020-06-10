@@ -8,43 +8,34 @@ namespace Hubster.Abstractions.Constants
     public class DirectActivityMessageType
     {
         private static readonly HashSet<string> _Set;
-        
-        public const string TextMessage = "TextMessage";
-        public const string CardMessage = "CardMessage";
-        public const string ComboMessage = "ComboMessage";
-        public const string ImageMessage = "ImageMessage";
-        public const string YouTubeVideoMessage = "YouTubeVideoMessage";
-        public const string VimeoVideoMessage = "VimeoVideoMessage";
-        public const string MP4VideoMessage = "MP4VideoMessage";
-        public const string AudioMessage = "AudioMessage";
-        public const string ButtonMessage = "ButtonMessage";
-        public const string QuickReplyMessage = "QuickReplyMessage";
-        public const string ButtonImageMessage = "ButtonImageMessage";
-        public const string ListMessage = "ListMessage";
-        public const string LinkMessage = "LinkMessage";
-        public const string FlashcardMessage = "FlashcardMessage";
-        public const string CustomMessage = "CustomMessage";
 
+        public const string Text = "text";
+        public const string Contact = "contact";
+        public const string Location = "location";
+        public const string Attachment = "attachment";
+        public const string Video = "video";
+        public const string Audio = "audio";
+        public const string Youtube = "youtube";
+        public const string Vimeo = "vimeo";
+        public const string Image = "image";
+        public const string List = "list";
+        public const string Carousel = "carousel";
 
         static DirectActivityMessageType()
         {
             _Set = new HashSet<string>(new[]
             {
-                TextMessage,
-                CardMessage,
-                ComboMessage,
-                ImageMessage,
-                YouTubeVideoMessage,
-                VimeoVideoMessage,
-                MP4VideoMessage,
-                AudioMessage,
-                ButtonMessage,
-                QuickReplyMessage,
-                ButtonImageMessage,
-                ListMessage,
-                LinkMessage,
-                FlashcardMessage,
-                CustomMessage,
+                Text,
+                Contact,
+                Location,
+                Attachment,
+                Video,
+                Audio,
+                Youtube,
+                Vimeo,
+                Image,
+                List,
+                Carousel,
             });
         }
 
