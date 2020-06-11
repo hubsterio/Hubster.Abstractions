@@ -9,34 +9,34 @@ namespace Hubster.Abstractions.Models.Direct
 {
     public class DirectActivityModel 
     {
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("eventTrigger", NullValueHandling = NullValueHandling.Ignore)]
         public string EventTrigger { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("eventId", NullValueHandling = NullValueHandling.Ignore)]
         public long? EventId { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("externalId", NullValueHandling = NullValueHandling.Ignore)]
         public string ExternalId { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("interactionId", NullValueHandling = NullValueHandling.Ignore)]
         public Guid? InteractionId { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("flowProcess", NullValueHandling = NullValueHandling.Ignore)]
         public ActivityFlowProcessType? FlowProcess { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("sender", NullValueHandling = NullValueHandling.Ignore)]
         public DirectSourceModel Sender { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("recipient", NullValueHandling = NullValueHandling.Ignore)]
         public DirectSourceModel Recipient { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
         public string Type { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("message", NullValueHandling = NullValueHandling.Ignore)]
         public DirectMessageModel Message { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("senderAction", NullValueHandling = NullValueHandling.Ignore)]
         public DirectSenderActionModel SenderAction { get; set; }
     }
 }

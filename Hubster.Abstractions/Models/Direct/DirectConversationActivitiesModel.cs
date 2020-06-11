@@ -9,7 +9,7 @@ namespace Hubster.Abstractions.Models.Direct
 
     public class DirectConversationActivitiesModel : DirectConversationModel
     {
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("activities", NullValueHandling = NullValueHandling.Ignore)]
         public List<DirectActivityModel> Activities { get; set; }
     }
 }
