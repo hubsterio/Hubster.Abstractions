@@ -11,7 +11,7 @@ namespace Hubster.Abstractions.Models
         [JsonProperty("group", NullValueHandling = NullValueHandling.Ignore)]
         public string Group { get; set; }
 
-        [JsonProperty("Activity", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("activity", NullValueHandling = NullValueHandling.Ignore)]
         public DirectActivityModel Activity { get; set; }
     }
 }
