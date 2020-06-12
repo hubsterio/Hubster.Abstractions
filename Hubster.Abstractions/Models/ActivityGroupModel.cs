@@ -8,10 +8,10 @@ namespace Hubster.Abstractions.Models
 {
     public class ActivityGroupModel
     {
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("group", NullValueHandling = NullValueHandling.Ignore)]
         public string Group { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("Activity", NullValueHandling = NullValueHandling.Ignore)]
         public DirectActivityModel Activity { get; set; }
     }
 }
