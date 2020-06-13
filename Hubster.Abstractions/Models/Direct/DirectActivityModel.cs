@@ -18,6 +18,9 @@ namespace Hubster.Abstractions.Models.Direct
         [JsonProperty("externalId", NullValueHandling = NullValueHandling.Ignore)]
         public string ExternalId { get; set; }
 
+        [JsonProperty("isEcho", NullValueHandling = NullValueHandling.Ignore)]
+        public bool isEcho { get; set; }
+
         [JsonProperty("interactionId", NullValueHandling = NullValueHandling.Ignore)]
         public Guid? InteractionId { get; set; }
 
