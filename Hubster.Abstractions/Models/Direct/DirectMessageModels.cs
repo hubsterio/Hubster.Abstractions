@@ -110,7 +110,11 @@ namespace Hubster.Abstractions.Models.Direct
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public List<DirectMessagePropertyItem> Properties { get; set; }
 
-        public DirectContactMessageModel() { Type = DirectActivityMessageType.Contact; }
+        public DirectContactMessageModel() 
+        { 
+            Type = DirectActivityMessageType.Contact;
+            Properties = new List<DirectMessagePropertyItem>();
+        }
     }
 
     public class DirectAttachmentMessageModel : DirectMessageModel
