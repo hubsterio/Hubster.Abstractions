@@ -13,7 +13,7 @@ namespace Hubster.Abstractions.Models.Direct
 
     public class DirectChannelMetadata
     {
-        public ChannelType Type { get; set; }
+        public string Type { get; set; }
         public List<DirectMessagePropertyItem> Metadata { get; set; }
     }
 
