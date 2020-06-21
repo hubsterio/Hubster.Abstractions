@@ -10,7 +10,6 @@ namespace Hubster.Abstractions.Constants
         private static readonly HashSet<string> _Set;        
 
         public const string Media = "media";
-        public const string Sticker = "sticker";
         public const string Location = "location";
         public const string Contact = "contact";
 
@@ -19,7 +18,6 @@ namespace Hubster.Abstractions.Constants
             _Set = new HashSet<string>(new[]
             {
                 Media,
-                Sticker,
                 Location,
                 Contact
             });
@@ -33,11 +31,6 @@ namespace Hubster.Abstractions.Constants
         public static bool IsMedia(string value)
         {
             return value == Media;
-        }
-
-        public static bool IsSticker(string value)
-        {
-            return value == Sticker;
         }
 
         public static bool IsLocation(string value)
