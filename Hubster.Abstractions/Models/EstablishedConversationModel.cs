@@ -31,5 +31,8 @@ namespace Hubster.Abstractions.Models
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public DateTime? ClosedDateTime { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public bool? IsNew { get; set; }
     }
 }
