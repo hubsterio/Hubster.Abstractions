@@ -11,6 +11,7 @@ namespace Hubster.Abstractions.Constants
 
         public const string Text = "text";
         public const string Contact = "contact";
+        public const string Card = "card";
         public const string Location = "location";
         public const string Attachment = "attachment";
         public const string Video = "video";
@@ -27,6 +28,7 @@ namespace Hubster.Abstractions.Constants
             {
                 Text,
                 Contact,
+                Card,
                 Location,
                 Attachment,
                 Video,

@@ -67,6 +67,7 @@ namespace Hubster.Abstractions.Converters
                     // message types
                     case DirectActivityMessageType.Text: message = jo.ToObject<DirectTextMessageModel>(serializer); break;
                     case DirectActivityMessageType.Contact: message = jo.ToObject<DirectContactMessageModel>(serializer); break;
+                    case DirectActivityMessageType.Card: message = jo.ToObject<DirectCardMessageModel>(serializer); break;
                     case DirectActivityMessageType.Location: message = jo.ToObject<DirectLocationMessageModel>(serializer); break;
                     case DirectActivityMessageType.Attachment: message = jo.ToObject<DirectAttachmentMessageModel>(serializer); break;
                     case DirectActivityMessageType.Image: message = jo.ToObject<DirectImageMessageModel>(serializer); break;

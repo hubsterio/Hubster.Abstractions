@@ -22,7 +22,10 @@ namespace Hubster.Abstractions.Models.Direct
         public string Title { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string Description { get; set; }
+        public string Subtitle { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string Content { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string MediaUrl { get; set; }
@@ -108,6 +111,9 @@ namespace Hubster.Abstractions.Models.Direct
         public string Title { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string Subtitle { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public List<DirectMessagePropertyItem> Properties { get; set; }
 
         public DirectContactMessageModel() 
@@ -115,6 +121,23 @@ namespace Hubster.Abstractions.Models.Direct
             Type = DirectActivityMessageType.Contact;
             Properties = new List<DirectMessagePropertyItem>();
         }
+    }
+
+    public class DirectCardMessageModel : DirectMessageModel
+    {
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string ImageUrl { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string Title { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string Subtitle { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string Content { get; set; }
+
+        public DirectCardMessageModel() { Type = DirectActivityMessageType.Contact; }
     }
 
     public class DirectAttachmentMessageModel : DirectMessageModel
@@ -136,7 +159,7 @@ namespace Hubster.Abstractions.Models.Direct
     public class DirectMediaMessageModel : DirectAttachmentMessageModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public int? Length { get; set; }        
+        public long? Length { get; set; }        
     }
 
     public class DirectImageMessageModel : DirectMessageModel
