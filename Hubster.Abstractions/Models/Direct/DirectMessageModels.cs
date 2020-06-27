@@ -137,7 +137,7 @@ namespace Hubster.Abstractions.Models.Direct
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Content { get; set; }
 
-        public DirectCardMessageModel() { Type = DirectActivityMessageType.Contact; }
+        public DirectCardMessageModel() { Type = DirectActivityMessageType.Card; }
     }
 
     public class DirectAttachmentMessageModel : DirectMessageModel
