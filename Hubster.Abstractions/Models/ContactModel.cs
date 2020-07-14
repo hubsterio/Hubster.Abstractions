@@ -11,13 +11,19 @@ namespace Hubster.Abstractions.Models
     {
         public ContactModel()
         {
-            Properties = new List<DirectrPropertyValue>();
+            Properties = new List<DirectPropertyValue>();
         }
         
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string ImageUrl { get; set; }
 
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]        
+        public byte[] ImageBlob { get; set; }
+
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<DirectrPropertyValue> Properties { get; set; }
+        public string ImageType { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public List<DirectPropertyValue> Properties { get; set; }
     }
 }
