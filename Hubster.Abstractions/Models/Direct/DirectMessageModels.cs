@@ -29,7 +29,10 @@ namespace Hubster.Abstractions.Models.Direct
         public string Content { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string MediaUrl { get; set; }
+        public string UrlType { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string Url { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public List<DirectAction> Actions { get; set; }
@@ -127,7 +130,10 @@ namespace Hubster.Abstractions.Models.Direct
     public class DirectCardMessageModel : DirectMessageModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string ImageUrl { get; set; }
+        public string UrlType { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string Url { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Title { get; set; }
