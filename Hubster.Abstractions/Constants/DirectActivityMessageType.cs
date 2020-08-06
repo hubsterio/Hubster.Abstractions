@@ -21,6 +21,7 @@ namespace Hubster.Abstractions.Constants
         public const string Image = "image";
         public const string List = "list";
         public const string Carousel = "carousel";
+        public const string Command = "command";
 
         static DirectActivityMessageType()
         {
@@ -38,6 +39,7 @@ namespace Hubster.Abstractions.Constants
                 Image,
                 List,
                 Carousel,
+                Command,
             });
         }
 

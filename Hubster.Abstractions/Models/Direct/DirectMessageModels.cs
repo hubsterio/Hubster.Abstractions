@@ -212,5 +212,23 @@ namespace Hubster.Abstractions.Models.Direct
         public DirectListMessageModel() { Type = DirectActivityMessageType.List; }
     }
 
- }
+    public class DirectCommandMessageModel : DirectMessageModel
+    {
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string Title { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string Subtitle { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public List<DirectMessagePropertyItem> Properties { get; set; }
+
+        public DirectCommandMessageModel()
+        {
+            Type = DirectActivityMessageType.Command;
+            Properties = new List<DirectMessagePropertyItem>();
+        }
+    }
+
+}
 
