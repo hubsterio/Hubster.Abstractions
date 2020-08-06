@@ -35,6 +35,9 @@ namespace Hubster.Abstractions.Models.Direct
         public string Url { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string FallbackImageUrl { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public List<DirectAction> Actions { get; set; }
     }
 
@@ -136,6 +139,9 @@ namespace Hubster.Abstractions.Models.Direct
         public string Url { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string FallbackImageUrl { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Title { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
@@ -165,6 +171,9 @@ namespace Hubster.Abstractions.Models.Direct
 
     public class DirectMediaMessageModel : DirectAttachmentMessageModel
     {
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string FallbackImageUrl { get; set; }
+
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public long? Length { get; set; }        
     }
