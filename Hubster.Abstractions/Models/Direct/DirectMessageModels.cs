@@ -57,17 +57,21 @@ namespace Hubster.Abstractions.Models.Direct
         public bool? IsDefault  { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<DirectChannelMetadata> Channels { get; set; }
-}
+        public List<DirectChannelMetadata> Channels { get; set; }        
+    }
 
     public class DirectLinkAction : DirectAction
     {
         public string Url { get; set; }
+
+        public DirectLinkAction() { Type = DirectActivityActionType.Link; }
     }
 
     public class DirectPostbackAction : DirectAction
     {        
         public string Payload { get; set; }
+
+        public DirectPostbackAction(string type = DirectActivityActionType.Postback) { Type = type; }
     }
 
     public class DirectMessageModel
