@@ -10,6 +10,7 @@ namespace Hubster.Abstractions.Constants
         private static readonly HashSet<string> _Set;
 
         public const string Message = "message";
+        public const string Event = "event";
         public const string SenderAction = "sender_action";
 
         static DirectActivityType()
@@ -17,6 +18,7 @@ namespace Hubster.Abstractions.Constants
             _Set = new HashSet<string>(new[]
             {
                 Message,
+                Event,
                 SenderAction,
             });
         }

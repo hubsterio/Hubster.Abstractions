@@ -9,6 +9,9 @@ namespace Hubster.Abstractions.Models.Direct
 {
     public class DirectActivityModel 
     {
+        [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
+        public string Type { get; set; }
+
         [JsonProperty("eventTrigger", NullValueHandling = NullValueHandling.Ignore)]
         public string EventTrigger { get; set; }
 
@@ -33,11 +36,11 @@ namespace Hubster.Abstractions.Models.Direct
         [JsonProperty("recipient", NullValueHandling = NullValueHandling.Ignore)]
         public DirectSourceModel Recipient { get; set; }
 
-        [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
-        public string Type { get; set; }
-
         [JsonProperty("message", NullValueHandling = NullValueHandling.Ignore)]
         public DirectMessageModel Message { get; set; }
+
+        [JsonProperty("event", NullValueHandling = NullValueHandling.Ignore)]
+        public DirectEventModel Event { get; set; }
 
         [JsonProperty("senderAction", NullValueHandling = NullValueHandling.Ignore)]
         public DirectSenderActionModel SenderAction { get; set; }
