@@ -24,6 +24,9 @@ namespace Hubster.Abstractions.Models
         public string Description { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public int? CloseDormantConversation { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string MetaData { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]

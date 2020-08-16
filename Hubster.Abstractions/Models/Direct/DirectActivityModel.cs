@@ -39,9 +39,6 @@ namespace Hubster.Abstractions.Models.Direct
         [JsonProperty("message", NullValueHandling = NullValueHandling.Ignore)]
         public DirectMessageModel Message { get; set; }
 
-        [JsonProperty("event", NullValueHandling = NullValueHandling.Ignore)]
-        public DirectEventModel Event { get; set; }
-
         [JsonProperty("senderAction", NullValueHandling = NullValueHandling.Ignore)]
         public DirectSenderActionModel SenderAction { get; set; }
     }

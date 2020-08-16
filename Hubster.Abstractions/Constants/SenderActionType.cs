@@ -12,7 +12,8 @@ namespace Hubster.Abstractions.Constants
         public const string Seen = "seen";
         public const string TypingOn = "typing_on";
         public const string TypingOff = "typing_off";
-        
+        public const string Payload = "payload";
+
         static SenderActionType()
         {
             _Set = new HashSet<string>(new[]
@@ -20,6 +21,7 @@ namespace Hubster.Abstractions.Constants
                 Seen,
                 TypingOn,
                 TypingOff,
+                Payload,
             });
         }
 
