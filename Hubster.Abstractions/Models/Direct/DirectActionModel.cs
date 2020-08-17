@@ -5,10 +5,10 @@ using Newtonsoft.Json;
 
 namespace Hubster.Abstractions.Models.Direct
 {
-    public class DirectSenderActionModel
+    public class DirectActionModel
     {
-        [JsonProperty("action", NullValueHandling = NullValueHandling.Ignore)]
-        public string Action { get; set; }
+        [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
+        public string Type { get; set; }
 
         [JsonProperty("payloadType", NullValueHandling = NullValueHandling.Ignore)]
         public string PayloadType { get; set; }
