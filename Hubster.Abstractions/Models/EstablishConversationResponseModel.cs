@@ -3,6 +3,7 @@
 
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Net;
 
 namespace Hubster.Abstractions.Models
 {
@@ -15,6 +16,7 @@ namespace Hubster.Abstractions.Models
 
         public ConversationModel Conversation { get; set; }
         public EstablishedConversationModel EstablishedConversation { get; set; }
+        public HttpStatusCode StatusCode { get; set; }
         public List<ErrorCodeModel> Errors { get; set; }
     }
 }
