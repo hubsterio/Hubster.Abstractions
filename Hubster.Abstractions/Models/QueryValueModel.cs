@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using Hubster.Abstractions.Interfaces;
+using System.Collections.Generic;
 
 namespace Hubster.Abstractions.Models
 {
     /// <summary>
     /// </summary>
-    public class QueryValueModel
+    public class QueryValueModel : IQueryValueModel
     {
         private readonly Dictionary<string, object> _values;
 
@@ -22,7 +23,7 @@ namespace Hubster.Abstractions.Models
         /// <param name="name">The name.</param>
         /// <param name="value">The value.</param>
         /// <returns></returns>
-        public QueryValueModel Add(string name, object value)
+        public IQueryValueModel Add(string name, object value)
         {
             _values[name] = value;
             return this;
@@ -38,7 +39,7 @@ namespace Hubster.Abstractions.Models
         public T Get<T>(string name, T defaultValue = default(T))
         {
             var value = defaultValue;
-            if(_values.ContainsKey(name))
+            if (_values.ContainsKey(name))
             {
                 var _value = _values[name];
                 value = _value != null ? (T)_values[name] : defaultValue;
@@ -51,7 +52,7 @@ namespace Hubster.Abstractions.Models
         /// Clears this instance.
         /// </summary>
         /// <returns></returns>
-        public QueryValueModel Clear()
+        public IQueryValueModel Clear()
         {
             _values.Clear();
             return this;
@@ -61,11 +62,11 @@ namespace Hubster.Abstractions.Models
         /// Copies this instance.
         /// </summary>
         /// <returns></returns>
-        public QueryValueModel Copy()
+        public IQueryValueModel Copy()
         {
             var copy = new QueryValueModel();
 
-            foreach(var item in _values)
+            foreach (var item in _values)
             {
                 copy.Add(item.Key, item.Value);
             }
@@ -73,21 +74,21 @@ namespace Hubster.Abstractions.Models
             return copy;
         }
 
-        /// <summary>
-        /// From the specified value.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns></returns>
-        public QueryValueModel From(QueryValueModel value)
-        {
-            Clear();
+        ///// <summary>
+        ///// From the specified value.
+        ///// </summary>
+        ///// <param name="value">The value.</param>
+        ///// <returns></returns>
+        //public IQueryValueModel From(QueryValueModel value)
+        //{
+        //    Clear();
 
-            foreach (var item in value._values)
-            {
-                Add(item.Key, item.Value);
-            }
+        //    foreach (var item in value._values)
+        //    {
+        //        Add(item.Key, item.Value);
+        //    }
 
-            return this;
-        }
+        //    return this;
+        //}
     }
 }
