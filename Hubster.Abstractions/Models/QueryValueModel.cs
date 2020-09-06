@@ -74,21 +74,32 @@ namespace Hubster.Abstractions.Models
             return copy;
         }
 
-        ///// <summary>
-        ///// From the specified value.
-        ///// </summary>
-        ///// <param name="value">The value.</param>
-        ///// <returns></returns>
-        //public IQueryValueModel From(QueryValueModel value)
-        //{
-        //    Clear();
+        /// <summary>
+        /// Merges the specified value.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
+        public IQueryValueModel Merge(IQueryValueModel value)
+        {
+            foreach (var item in (value as QueryValueModel)._values)
+            {
+                _values[item.Key] = item.Value;
+            }
 
-        //    foreach (var item in value._values)
-        //    {
-        //        Add(item.Key, item.Value);
-        //    }
+            return this;
+        }
 
-        //    return this;
-        //}
+        /// <summary>
+        /// From the specified value.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
+        public IQueryValueModel From(IQueryValueModel value)
+        {
+            Clear();
+            Merge(value);
+
+            return this;
+        }
     }
 }
