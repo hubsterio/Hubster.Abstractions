@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Hubster.Abstractions.Enums
+﻿namespace Hubster.Abstractions.Enums
 {
-    public enum PacakageServiceType
+    public enum PackageServiceType
+
     {
         Internal = 1,
         Evaluation = 2,
