@@ -19,5 +19,8 @@ namespace Hubster.Abstractions.Models.Direct
 
         [JsonProperty("activity", NullValueHandling = NullValueHandling.Ignore)]
         public DirectActivityModel Activity { get; set; }
+
+        [JsonProperty("ttl", NullValueHandling = NullValueHandling.Ignore)]
+        public int? TTL { get; set; }
     }
 }
