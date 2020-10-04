@@ -2,6 +2,7 @@
 // Copyright (c) 2020 Hubster Solutions Inc. All rights reserved.
 
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Hubster.Abstractions.Models.Direct
 {
@@ -14,6 +15,6 @@ namespace Hubster.Abstractions.Models.Direct
         public string PayloadType { get; set; }
 
         [JsonProperty("payload", NullValueHandling = NullValueHandling.Ignore)]
-        public string Payload { get; set; }
+        public JObject Payload { get; set; }
     }
 }
