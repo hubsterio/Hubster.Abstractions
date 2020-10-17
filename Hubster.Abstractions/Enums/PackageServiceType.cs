@@ -1,5 +1,9 @@
-﻿namespace Hubster.Abstractions.Enums
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
+namespace Hubster.Abstractions.Enums
 {
+    [JsonConverter(typeof(StringEnumConverter))]
     public enum PackageServiceType
 
     {
