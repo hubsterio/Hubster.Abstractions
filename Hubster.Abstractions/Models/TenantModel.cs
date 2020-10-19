@@ -28,6 +28,33 @@ namespace Hubster.Abstractions.Models
         public int? DataRetention { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public DateTime? ServiceStartDate { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public decimal? ServiceMonthlyFee { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public decimal? ServiceDiscount { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public int? ConversationsPerMonth { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public decimal? ConversationOverageFee { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public int? ChannelAllowance { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public int? CRMAllowance { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public int? WebhookAllowance { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public int? DirectAllowance { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public bool? ResponseCommands { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
