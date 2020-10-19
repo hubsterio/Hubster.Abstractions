@@ -1,23 +1,24 @@
-﻿// Hubster 
-// Copyright (c) 2020 Hubster Solutions Inc. All rights reserved.
-
+﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Hubster.Abstractions.Constants
 {
-    public class DirectActivityType
+    public class DirectActivityActionType
     {
         private static readonly HashSet<string> _Set;
 
-        public const string Message = "message";        
-        public const string Action = "action";
+        public const string Link = "link";
+        public const string Postback = "postback";
+        public const string Reply = "reply";
 
-        static DirectActivityType()
+        static DirectActivityActionType()
         {
             _Set = new HashSet<string>(new[]
             {
-                Message,                
-                Action,
+                Link,
+                Postback,
+                Reply,
             });
         }
 

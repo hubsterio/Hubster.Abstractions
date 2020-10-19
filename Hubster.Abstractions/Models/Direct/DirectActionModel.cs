@@ -2,21 +2,19 @@
 // Copyright (c) 2020 Hubster Solutions Inc. All rights reserved.
 
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Hubster.Abstractions.Models.Direct
 {
-    public class DirectQuickReplyModel
+    public class DirectActionModel
     {
         [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
         public string Type { get; set; }
 
-        [JsonProperty("text", NullValueHandling = NullValueHandling.Ignore)]
-        public string Text { get; set; }
-
-        [JsonProperty("image_url", NullValueHandling = NullValueHandling.Ignore)]
-        public string ImageUrl { get; set; }
+        [JsonProperty("payloadType", NullValueHandling = NullValueHandling.Ignore)]
+        public string PayloadType { get; set; }
 
         [JsonProperty("payload", NullValueHandling = NullValueHandling.Ignore)]
-        public string Payload { get; set; }
+        public JObject Payload { get; set; }
     }
 }

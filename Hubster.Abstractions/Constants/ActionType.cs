@@ -5,21 +5,23 @@ using System.Collections.Generic;
 
 namespace Hubster.Abstractions.Constants
 {
-    public class SenderActionType
+    public class ActionType
     {
         private static readonly HashSet<string> _Set;
 
         public const string Seen = "seen";
         public const string TypingOn = "typing_on";
         public const string TypingOff = "typing_off";
-        
-        static SenderActionType()
+        public const string Payload = "payload";
+
+        static ActionType()
         {
             _Set = new HashSet<string>(new[]
             {
                 Seen,
                 TypingOn,
                 TypingOff,
+                Payload,
             });
         }
 

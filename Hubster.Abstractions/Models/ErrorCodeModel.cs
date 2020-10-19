@@ -7,10 +7,10 @@ namespace Hubster.Abstractions.Models
 {
     public class ErrorCodeModel
     {
-        [JsonProperty("code", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public int Code { get; set; }
 
-        [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Description { get; set; }
     }
 }

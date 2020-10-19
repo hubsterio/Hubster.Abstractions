@@ -21,7 +21,7 @@ namespace Hubster.Abstractions.Constants
             });
         }
 
-        public static bool Validator(string value)
+        public static bool IsValid(string value)
         {
             return _Set.Contains(value);
         }

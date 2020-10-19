@@ -3,18 +3,31 @@
 
 using Hubster.Abstractions.Enums;
 using Newtonsoft.Json;
+using System;
 
 namespace Hubster.Abstractions.Models.Direct
 {
     public class DirectActivityModel 
     {
-        [JsonProperty("event_trigger", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
+        public string Type { get; set; }
+
+        [JsonProperty("eventTrigger", NullValueHandling = NullValueHandling.Ignore)]
         public string EventTrigger { get; set; }
 
-        [JsonProperty("event_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("eventId", NullValueHandling = NullValueHandling.Ignore)]
         public long? EventId { get; set; }
 
-        [JsonProperty("flow_process", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("externalId", NullValueHandling = NullValueHandling.Ignore)]
+        public string ExternalId { get; set; }
+
+        [JsonProperty("isEcho", NullValueHandling = NullValueHandling.Ignore)]
+        public bool IsEcho { get; set; }
+
+        [JsonProperty("interactionId", NullValueHandling = NullValueHandling.Ignore)]
+        public Guid? InteractionId { get; set; }
+
+        [JsonProperty("flowProcess", NullValueHandling = NullValueHandling.Ignore)]
         public ActivityFlowProcessType? FlowProcess { get; set; }
 
         [JsonProperty("sender", NullValueHandling = NullValueHandling.Ignore)]
@@ -23,13 +36,10 @@ namespace Hubster.Abstractions.Models.Direct
         [JsonProperty("recipient", NullValueHandling = NullValueHandling.Ignore)]
         public DirectSourceModel Recipient { get; set; }
 
-        [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
-        public string Type { get; set; }
-        
         [JsonProperty("message", NullValueHandling = NullValueHandling.Ignore)]
         public DirectMessageModel Message { get; set; }
 
-        [JsonProperty("sender_action", NullValueHandling = NullValueHandling.Ignore)]
-        public DirectSenderActionModel SenderAction { get; set; }
+        [JsonProperty("action", NullValueHandling = NullValueHandling.Ignore)]
+        public DirectActionModel Action { get; set; }
     }
 }

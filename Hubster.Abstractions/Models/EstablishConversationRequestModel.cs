@@ -1,6 +1,7 @@
 ﻿// Hubster 
 // Copyright (c) 2020 Hubster Solutions Inc. All rights reserved.
 
+using Hubster.Abstractions.Enums;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
@@ -17,13 +18,9 @@ namespace Hubster.Abstractions.Models
             };
         }
 
-        [JsonProperty("integration_id")]
         public string IntegrationId { get; set; }
-
-        [JsonProperty("binding")]
         public string Binding { get; set; }
-
-        [JsonProperty("properties")]
+        public ChannelType? ChannelType { get; set; }
         public ConversationPropertiesModel Properties { get; set; }
     }
 }

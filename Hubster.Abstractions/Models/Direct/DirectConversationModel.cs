@@ -8,16 +8,16 @@ namespace Hubster.Abstractions.Models.Direct
 {
     public class DirectConversationModel
     {
-        [JsonProperty("tenant_id")]
+        [JsonProperty("tenantId", NullValueHandling = NullValueHandling.Ignore)]
         public Guid TenantId { get; set; }
 
-        [JsonProperty("hub_id")]
+        [JsonProperty("hubId", NullValueHandling = NullValueHandling.Ignore)]
         public Guid HubId { get; set; }
 
-        [JsonProperty("conversation_id")]
+        [JsonProperty("conversationId", NullValueHandling = NullValueHandling.Ignore)]
         public Guid ConversationId { get; set; }
 
-        [JsonProperty("event_id")]
+        [JsonProperty("eventId", NullValueHandling = NullValueHandling.Ignore)]
         public long EventId { get; set; }
     }
 }
