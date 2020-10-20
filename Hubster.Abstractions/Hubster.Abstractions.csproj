@@ -21,7 +21,7 @@
     <Compile Remove="Models\Direct.bk\**" />
     <EmbeddedResource Remove="Models\Direct.bk\**" />
     <None Remove="Models\Direct.bk\**" />
-    <None Include="..\..\..\hubster\Hubster.Portal.API\nuget_256x256.png">
+    <None Include="..\nuget_256x256.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
