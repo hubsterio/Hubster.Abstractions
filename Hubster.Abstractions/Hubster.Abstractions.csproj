@@ -10,6 +10,10 @@
     <PackageProjectUrl>https://hubster.io</PackageProjectUrl>
     <RepositoryType>Git</RepositoryType>
     <RepositoryUrl>https://github.com/hubsterio/Hubster.Abstractions</RepositoryUrl>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+    <PackageIcon>nuget_256x256.png</PackageIcon>
+    <Version>1.0.1</Version>
 
   </PropertyGroup>
 
@@ -17,6 +21,10 @@
     <Compile Remove="Models\Direct.bk\**" />
     <EmbeddedResource Remove="Models\Direct.bk\**" />
     <None Remove="Models\Direct.bk\**" />
+    <None Include="..\..\..\hubster\Hubster.Portal.API\nuget_256x256.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
