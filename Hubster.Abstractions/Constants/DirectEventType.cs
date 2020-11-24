@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Hubster.Abstractions.Constants
 {
-    public class ActionType
+    public class DirectEventType
     {
         private static readonly HashSet<string> _Set;
 
@@ -14,7 +14,7 @@ namespace Hubster.Abstractions.Constants
         public const string TypingOff = "typing_off";
         public const string Payload = "payload";
 
-        static ActionType()
+        static DirectEventType()
         {
             _Set = new HashSet<string>(new[]
             {

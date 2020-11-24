@@ -10,14 +10,14 @@ namespace Hubster.Abstractions.Constants
         private static readonly HashSet<string> _Set;
 
         public const string Message = "message";        
-        public const string Action = "action";
+        public const string Event = "event";
 
         static DirectActivityType()
         {
             _Set = new HashSet<string>(new[]
             {
                 Message,                
-                Action,
+                Event,
             });
         }
 

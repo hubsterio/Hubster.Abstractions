@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Hubster.Abstractions.Models.Direct
 {
-    public class DirectActionModel
+    public class DirectEventModel
     {
         [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
         public string Type { get; set; }
