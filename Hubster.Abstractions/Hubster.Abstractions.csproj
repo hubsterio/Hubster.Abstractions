@@ -19,6 +19,6 @@
   
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Plato.NetCore" Version="2020.11.24.1" />
+    <PackageReference Include="Plato.NetCore" Version="2021.3.12.1" />
   </ItemGroup>
 </Project>
