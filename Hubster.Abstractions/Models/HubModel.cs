@@ -30,9 +30,6 @@ namespace Hubster.Abstractions.Models
         public int? CloseDormantConversation { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string MetaData { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public int? StatusId { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
